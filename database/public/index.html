@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSCI 335 Music Database</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>CSCI 335 Music Database</h1>
+      <span id="db-status" class="db-status">⚪</span>
+      <nav>
+        <button onclick="showSection('songs')">Songs</button>
+        <button onclick="showSection('artists')">Artists</button>
+        <button onclick="showSection('users')">Users</button>
+        <button onclick="showSection('playlists')">Playlists</button>
+        <button onclick="showSection('genres')">Genres</button>
+        <button onclick="showSection('stats')">Stats</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- SONGS -->
+      <section id="songs" class="section">
+        <h2>Songs</h2>
+
+        <div id="nationality-popularity-div">
+          <h3>Most Popular Nationalities (GROUP BY)</h3>
+          <button onclick="loadNationalityPopularity()">Update</button>
+          <div id="nationality-popularity-table"></div>
+        </div>
+
+        <div id="song-table-div">
+          <h3>All Songs</h3>
+          <button onclick="loadSongs()">Load Songs</button>
+          <br />
+          <br />
+          <label for="song-limit">Show first</label>
+          <input id="song-limit" type="number" min="1" step="1" value="10" />
+          <label for="song-limit">songs</label>
+          <br />
+          <br />
+          <div id="songs-table"></div>
+        </div>
+        
+        <hr />
+
+        <div id="song-projection-div">
+          <h3>Projection: Choose Song Fields to Display</h3>
+
+          <p>Select which columns you want to see:</p>
+
+          <label>
+            <input type="checkbox" class="project-field" value="songName" checked />
+            Song Title
+          </label>
+
+          <label>
+            <input type="checkbox" class="project-field" value="artistName" checked />
+            Artist
+          </label>
+
+          <label>
+            <input type="checkbox" class="project-field" value="releaseYear" checked />
+            Year
+          </label>
+
+          <label>
+            <input type="checkbox" class="project-field" value="length_ms" />
+            Length
+          </label>
+
+          <label>
+            <input type="checkbox" class="project-field" value="listens" />
+            Listens
+          </label>
+
+          <label>
+            <input type="checkbox" class="project-field" value="popularity" />
+            Popularity
+          </label>
+
+          <label>
+            <input type="checkbox" class="project-field" value="genreName" />
+            Genre
+          </label>
+
+          <br />
+          <br />
+
+          <button onclick="projectSongs()">Show Selected Fields</button>
+
+          <div id="song-projection-msg" class="msg"></div>
+          <div id="song-projection-table"></div>
+        </div>
+
+        <hr />
+
+        <div id="song-selection-div">
+          <h3>Selection: Search Songs with Conditions</h3>
+
+          <p>choose up to 3 conditions. The first condition does not need AND/OR</p>
+
+          <!-- Condition 1 -->
+           <div class="selection-row">
+              <select class="select-field">
+                <option value="songName">Song Title</option>
+                <option value="artistName">Artist</option>
+                <option value="releaseYear">Year</option>
+                <option value="length_ms">Length</option>
+                <option value="listens">Listens</option>
+                <option value="popularity">Popularity</option>
+                <option value="genreName">Genre</option>
+              </select>
+
+              <select class="select-operator">
+                <option value="=">=</option>
+                <option value="LIKE">contains</option>
+                <option value="<">&lt;</option>
+                <option value=">">&gt;</option>
+                <option value="<=">&lt;=</option>
+                <option value=">=">&gt;=</option>
+              </select>
+
+              <input class="select-value" placeholder="Value, e.g. Pop or 2015" />
+           </div>
+          
+          <!-- Condition 2-->
+           <div class="selection-row">
+            <select class="select-logic">
+              <option value="AND">AND</option>
+              <option value="OR">OR</option>
+            </select>
+
+            <select class="select-field">
+                <option value="songName">Song Title</option>
+                <option value="artistName">Artist</option>
+                <option value="releaseYear">Year</option>
+                <option value="length_ms">Length</option>
+                <option value="listens">Listens</option>
+                <option value="popularity">Popularity</option>
+                <option value="genreName">Genre</option>
+              </select>
+
+              <select class="select-operator">
+                <option value="=">=</option>
+                <option value="LIKE">contains</option>
+                <option value="<">&lt;</option>
+                <option value=">">&gt;</option>
+                <option value="<=">&lt;=</option>
+                <option value=">=">&gt;=</option>
+              </select>
+
+              <input class="select-value" placeholder="Value" />
+           </div>
+
+           <!-- Condition 3-->
+           <div class="selection-row">
+              <select class="select-logic">
+                <option value="AND">AND</option>
+                <option value="OR">OR</option>
+              </select>
+
+              <select class="select-field">
+                  <option value="songName">Song Title</option>
+                  <option value="artistName">Artist</option>
+                  <option value="releaseYear">Year</option>
+                  <option value="length_ms">Length</option>
+                  <option value="listens">Listens</option>
+                  <option value="popularity">Popularity</option>
+                  <option value="genreName">Genre</option>
+              </select>
+
+              <select class="select-operator">
+                <option value="=">=</option>
+                <option value="LIKE">contains</option>
+                <option value="<">&lt;</option>
+                <option value=">">&gt;</option>
+                <option value="<=">&lt;=</option>
+                <option value=">=">&gt;=</option>
+              </select>
+
+              <input class="select-value" placeholder="Value" />
+           </div>
+
+           <br />
+
+           <button onclick="selectSongs()">Search Songs</button>
+
+           <div id="song-selection-msg" class="msg"></div>
+           <div id="song-selection-table"></div>
+        </div>
+
+
+        <hr />
+
+        <div id="album-division-div">
+          <h3>Division: Users Who Have Every Song From an Album</h3>
+
+          <p>
+            Select an album to find users who have all songs from that album in 
+            their playlists
+          </p>
+
+          <select id="division-album-select">
+            <option value="">Loading albums...</option>
+          </select>
+
+          <button onclick="runAlbumDivision()">Find Users</button>
+
+          <div id="album-division-msg" class="msg"></div>
+          <div id="album-division-table"></div>
+        </div>
+      </section>
+
+      <!-- ARTISTS -->
+      <section id="artists" class="section hidden">
+        <h2>Artists</h2>
+
+        <div id="artist-popularity-div">
+          <h3>Most Popular Artists</h3>
+          <label for="artist-min-listens"
+            >Show only artists with at least</label
+          >
+          <input
+            id="artist-min-listens"
+            type="number"
+            min="0"
+            step="1000000"
+            value="10000000"
+          />
+          <label for="artist-min-listens">listens</label>
+          <button onclick="loadArtistPopularity()">Update</button>
+          <div id="artist-popularity-table"></div>
+        </div>
+
+        <div id="artist-table-div">
+          <h3>All Artists</h3>
+          <button onclick="loadArtists()">Load All Artists</button>
+          <div id="artists-table"></div>
+        </div>
+
+        <h3>Search Songs by Artist (JOIN)</h3>
+        <div class="form-group">
+          <input
+            id="artist-search-input"
+            placeholder="Artist name (e.g. Drake)"
+          />
+          <button onclick="searchSongsByArtist()">Search</button>
+        </div>
+        <div id="artist-search-msg" class="msg"></div>
+        <div id="artist-search-table"></div>
+      </section>
+
+      <!-- USERS -->
+      <section id="users" class="section hidden">
+        <h2>Users</h2>
+        <button onclick="loadUsers()">Load All Users</button>
+        <div id="users-table"></div>
+
+        <hr />
+
+        <h3>Add New User (INSERT)</h3>
+        <div class="form-group">
+          <input id="new-username" placeholder="Username" />
+          <input id="new-password" placeholder="Password" type="password" />
+          <input id="new-birthdate" type="date" />
+          <select id="new-gender">
+            <option value="">Gender</option>
+            <option value="M">M</option>
+            <option value="F">F</option>
+          </select>
+          <input id="new-zip" placeholder="ZIP" />
+          <select id="new-tier">
+            <option value="">Subscription Tier</option>
+            <option value="Free">Free</option>
+            <option value="Student">Student</option>
+            <option value="Premium">Premium</option>
+            <option value="Family">Family</option>
+            <option value="HiFi">HiFi</option>
+          </select>
+          <button onclick="insertUser()">Add User</button>
+        </div>
+        <div id="user-insert-msg" class="msg"></div>
+
+        <hr />
+
+        <hr />
+
+        <h3>Update User (UPDATE)</h3>
+        <div class="form-group">
+          <input id="update-username" placeholder="Username" />
+          <button onclick="loadUsersForUpdate()">Load Users</button>
+        </div>
+        <div id="update-user-list"></div>
+        <div class="form-group">
+          <select id="update-tier">
+            <option value="">Change Tier (optional)</option>
+            <option value="Free">Free</option>
+            <option value="Student">Student</option>
+            <option value="Premium">Premium</option>
+            <option value="Family">Family</option>
+            <option value="HiFi">HiFi</option>
+          </select>
+          <input id="update-zip" placeholder="New ZIP (optional)" />
+          <select id="update-gender">
+            <option value="">Change Gender (optional)</option>
+            <option value="M">M</option>
+            <option value="F">F</option>
+          </select>
+          <button onclick="updateUser()">Update</button>
+        </div>
+        <div id="user-update-msg" class="msg"></div>
+      </section>
+
+      <!-- PLAYLISTS -->
+      <section id="playlists" class="section hidden">
+        <h2>Playlists</h2>
+        <button onclick="loadAllPlaylists()">Load All Playlists</button>
+        <div id="playlists-table"></div>
+
+        <hr />
+
+        <h3>Search a User's Playlist</h3>
+        <div class="form-group">
+          <input id="search-username" placeholder="Username" />
+          <button onclick="loadPlaylistsByUser()">Load User Playlists</button>
+          <div id="user-playlists-msg" class="msg"></div>
+        </div>
+        <div id="user-playlists-table"></div>
+
+        <h3>View Songs in a Playlist</h3>
+        <div class="form-group">
+          <input id="pl-username" placeholder="Username" />
+          <input id="pl-name" placeholder="Playlist Name" />
+          <button onclick="loadPlaylistSongs()">Load Songs</button>
+        </div>
+        <div id="see-playlist-songs-msg" class="msg"></div>
+        <div id="playlist-songs-table"></div>
+
+        <hr />
+
+        <h3>Add Song to Playlist (INSERT)</h3>
+        <div class="form-group">
+          <input id="add-pl-username" placeholder="Username" />
+          <input id="add-pl-name" placeholder="Playlist Name" />
+        </div>
+        <div class="form-group">
+          <input
+            id="song-search"
+            placeholder="Search song name..."
+            oninput="searchSongsForAdd()"
+          />
+        </div>
+        <div id="song-search-results"></div>
+        <div
+          id="selected-song-display"
+          style="
+            color: #1db954;
+            font-size: 0.85rem;
+            margin: 6px 0;
+            min-height: 20px;
+          "
+        ></div>
+        <input id="add-pl-sid" type="hidden" />
+        <button onclick="addSongToPlaylist()">Add Song</button>
+        <div id="add-song-msg" class="msg"></div>
+
+        <hr />
+
+        <h3>Delete Playlist (DELETE)</h3>
+        <div class="form-group">
+          <input id="del-pl-username" placeholder="Username" />
+          <button onclick="loadPlaylistsForDelete()">Load My Playlists</button>
+        </div>
+        <div id="delete-pl-list"></div>
+        <div class="form-group">
+          <input id="del-pl-name" placeholder="Playlist Name" />
+          <button onclick="deletePlaylist()" class="danger">
+            Delete Playlist
+          </button>
+        </div>
+        <div id="delete-pl-msg" class="msg"></div>
+      </section>
+
+      <!-- GENRES -->
+      <section id="genres" class="section hidden">
+        <h2>Genres</h2>
+
+        <div id="genre-popularity-div">
+          <h3>Most Popular Genres (GROUP BY with HAVING)</h3>
+          <label for="genre-min-songs">Show only genres with at least</label>
+          <input
+            id="genre-min-songs"
+            type="number"
+            min="0"
+            step="1"
+            value="6"
+          />
+          <label for="genre-min-songs">songs</label>
+          <button onclick="loadGenrePopularity()">Update</button>
+          <div id="genre-popularity-table"></div>
+        </div>
+
+        <div id="genre-table-div">
+          <h3>All Genres</h3>
+          <button onclick="loadGenres()">Load All Genres</button>
+          <div id="genres-table"></div>
+        </div>
+      </section>
+      <!-- STATS -->
+      <section id="stats" class="section hidden">
+        <h2>Statistics</h2>
+
+        <h3>Top Genre by Average Listens (Nested Aggregation)</h3>
+        <button onclick="loadTopGenre()">Load</button>
+        <div id="top-genre-table"></div>
+
+        <hr />
+
+        <h3>Songs with Multiple Artists</h3>
+        <button onclick="loadCollaboratedSongs()">Load</button>
+        <div id="collaborated-songs-table"></div>
+
+        <hr />
+
+        <h3>Most Active Users</h3>
+        <button onclick="loadActiveUsers()">Load</button>
+        <div id="active-users-table"></div>
+
+        <hr />
+
+        <h3>Songs Never Added to Any Playlist</h3>
+        <button onclick="loadUnplayedSongs()">Load</button>
+        <div id="unplayed-songs-table"></div>
+
+        <hr />
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

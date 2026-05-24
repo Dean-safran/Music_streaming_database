@@ -1,0 +1,12 @@
+genre,popularity,genre_id
+bluegrass,24.666666666666668,0
+cantopop,3.3333333333333335,1
+chicago-house,0.0,2
+chill,39.666666666666664,3
+french,17.666666666666668,4
+garage,20.666666666666668,5
+piano,17.0,6
+pop-film,28.0,7
+post-dubstep,12.333333333333334,8
+progressive-house,0.0,9
+techno,32.0,10

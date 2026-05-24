@@ -1,0 +1,6 @@
+cid,production_company
+0,Melody Mountain Records
+1,Eas Music Ltd.
+2,Hyperion
+3,Epitaph
+4,The Extreme Music Library Limited

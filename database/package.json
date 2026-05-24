@@ -1,0 +1,22 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "The purpose of this repository is for you to have a shared location for you to collaborate.  It's important that you check in your files and progress into this repository so there is a record of the progress your group has made.  You may create your own organization for working.  I encourage you to create a directory for each milestone's deliverables so that they are easy for me to find when I grade your work.  For example, create a milestone1 directory where you'll put your milestone1.pdf file.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://evolene.cs.williams.edu/cs335-s26/26gx1-26ta13-27dls5/project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "oracledb": "^6.10.0"
+  }
+}

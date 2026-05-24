@@ -1,0 +1,15 @@
+sid,album_name,cid
+2,Bluegrass Gospel,0.0
+4,L.O.V.E.,1.0
+12,The French Suites,2.0
+13,The French Suites,2.0
+14,The French Suites,2.0
+18,Mozart: Piano Sonatas,2.0
+19,Beethoven: Piano Sonatas Vol. 3,2.0
+20,Chopin: Piano Sonatas Nos. 2 & 3,2.0
+21,Face For The Radio/Voice For A Silent Film (Deluxe),3.0
+22,Face For The Radio/Voice For A Silent Film (Deluxe),3.0
+23,Face For The Radio/Voice For A Silent Film (Deluxe),3.0
+24,Post Dubstep,4.0
+25,Post Dubstep,4.0
+26,Post Dubstep,4.0

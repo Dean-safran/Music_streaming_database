@@ -1,0 +1,32 @@
+aid,artist
+0,Joe Maphis
+1,Patty Stoneman
+2,Betty Jean Robinson
+3,Jacky Cheung
+4,Eason Chan
+5, eason and the duo band
+6,Alan Tam
+7,Chicago House Selection
+8,Ka$hhh
+9,DJ Noiz
+10, Donell Lewis
+11, Konecs
+12, Cessmun
+13,Bakar
+14,Johann Sebastian Bach
+15, Angela Hewitt
+16,El Ray
+17, Skrizzly Adams
+18,LarryBurdd
+19,Big Smack
+20,Wolfgang Amadeus Mozart
+21, Marc-André Hamelin
+22,Ludwig van Beethoven
+23,Frédéric Chopin
+24,poptropicaslutz!
+25, aldrch
+26,Extreme Music
+27,Progressive House Sessions
+28,EzeBoss
+29,Destructo
+30,Dimension

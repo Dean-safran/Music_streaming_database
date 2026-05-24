@@ -1,0 +1,15 @@
+cid,album_name,release_year
+0.0,Bluegrass Gospel,1991.0
+1.0,L.O.V.E.,2018.0
+2.0,The French Suites,1995.0
+2.0,The French Suites,1995.0
+2.0,The French Suites,1995.0
+2.0,Mozart: Piano Sonatas,2015.0
+2.0,Beethoven: Piano Sonatas Vol. 3,2010.0
+2.0,Chopin: Piano Sonatas Nos. 2 & 3,2009.0
+3.0,Face For The Radio/Voice For A Silent Film (Deluxe),2024.0
+3.0,Face For The Radio/Voice For A Silent Film (Deluxe),2024.0
+3.0,Face For The Radio/Voice For A Silent Film (Deluxe),2024.0
+4.0,Post Dubstep,2015.0
+4.0,Post Dubstep,2015.0
+4.0,Post Dubstep,2015.0

@@ -12,7 +12,7 @@ async function initiateConnectionPool() {
   const user = process.env.DB_USER;
   const password = process.env.DB_PASSWORD;
 
-  const connectString = process.env.DB_CONNECT_STRING;
+  const connectString = process.env.DB_CONNECTION_STRING;
   let connection;
   try {
     poolPromise = oracledb.createPool({

@@ -9,7 +9,7 @@ First, start the music streaming app:
 node server.js
 ```
 
-Then, in another terminal, run 
+Then, in another terminal, cd into sql_injection_demo and run 
 
 ```bash
 make run
